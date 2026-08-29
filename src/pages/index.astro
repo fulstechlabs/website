@@ -1,0 +1,201 @@
+---
+import '../styles/global.css';
+
+const marketplaceUrl = 'https://marketplace.atlassian.com/vendors/1212817/fulstech';
+const docsUrl = 'https://docs.fulstech.com/';
+const supportUrl = 'https://fulstech.atlassian.net/servicedesk/customer/portals';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (value: string) => `${base}/${value.replace(/^\//, '')}`;
+const canonical = new URL(`${base || ''}/`, Astro.site ?? Astro.url.origin);
+
+const capabilities = [
+  { label: 'Create', detail: 'Rich content and math', symbol: 'Aa' },
+  { label: 'Visualize', detail: 'Diagrams and flows', symbol: '◇' },
+  { label: 'Organize', detail: 'Structured work', symbol: '✓' },
+  { label: 'Collaborate', detail: 'Shared context', symbol: '@' },
+];
+
+const outcomes = [
+  {
+    title: 'Create with precision',
+    detail: 'Markdown, rich content, and mathematical notation',
+    kind: 'editor',
+  },
+  {
+    title: 'Explain with visuals',
+    detail: 'Diagrams, whiteboards, and process flows',
+    kind: 'flow',
+  },
+  {
+    title: 'Organize with structure',
+    detail: 'Custom fields, tables, and checklists',
+    kind: 'checklist',
+  },
+];
+
+const principles = [
+  { number: '01', title: 'Practical by design', copy: 'Focused solutions shaped around real problems.' },
+  { number: '02', title: 'Clear from the start', copy: 'Intuitive products that teams can understand quickly.' },
+  { number: '03', title: 'Supported for the long term', copy: 'Direct help from specialists who know the products.' },
+];
+
+const trust = [
+  { eyebrow: 'POLICIES', title: 'Transparent by default', copy: 'Straightforward terms, privacy information, and service commitments.' },
+  { eyebrow: 'WORKFLOWS', title: 'Built for Atlassian teams', copy: 'Focused tools designed around the way Jira and Confluence teams work.' },
+  { eyebrow: 'SUPPORT', title: 'Product specialists', copy: 'Practical help from people who understand the software.' },
+];
+
+const journey = [
+  ['Marketplace', 'Discover and evaluate'],
+  ['Product', 'Install and use'],
+  ['Guides', 'Learn with clarity'],
+  ['Direct support', 'Get practical help'],
+];
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Fulstech',
+  url: canonical.href,
+  sameAs: ['https://github.com/fulstechlabs', marketplaceUrl],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Fulstech creates practical software for teams working across Jira and Confluence." />
+    <meta name="theme-color" content="#071126" />
+    <link rel="icon" type="image/svg+xml" href={asset('favicon.svg')} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fulstech" />
+    <meta property="og:title" content="Fulstech — Focused software for clearer teamwork" />
+    <meta property="og:description" content="Practical apps for teams working across Jira and Confluence." />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(asset('og.png'), Astro.site ?? Astro.url.origin)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fulstech — Focused software for clearer teamwork" />
+    <meta name="twitter:description" content="Practical apps for teams working across Jira and Confluence." />
+    <meta name="twitter:image" content={new URL(asset('og.png'), Astro.site ?? Astro.url.origin)} />
+    <title>Fulstech — Focused software for clearer teamwork</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Fulstech home">
+          <img src={asset('brand/fulstech-mark.svg')} width="32" height="36" alt="" />
+          <span>Fulstech</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href={marketplaceUrl}>Products</a>
+          <a href="#capabilities">Solutions</a>
+          <a href="#principles">Company</a>
+          <a href="#trust">Resources</a>
+        </nav>
+        <div class="header-actions">
+          <a class="header-text-link" href={docsUrl}>Docs</a>
+          <a class="header-text-link support-link" href={supportUrl}>Support</a>
+          <a class="marketplace-button" href={marketplaceUrl}>
+            <span class="marketplace-long">Atlassian Marketplace</span>
+            <span class="marketplace-short">Marketplace</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <details class="mobile-menu">
+            <summary aria-label="Open navigation"><span aria-hidden="true">☰</span></summary>
+            <nav aria-label="Mobile navigation">
+              <a href={marketplaceUrl}>Products</a>
+              <a href="#capabilities">Solutions</a>
+              <a href="#principles">Company</a>
+              <a href="#trust">Resources</a>
+              <a href={docsUrl}>Documentation</a>
+              <a href={supportUrl}>Support</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">SOFTWARE FOR JIRA &amp; CONFLUENCE TEAMS</p>
+          <h1>Focused software for clearer teamwork.</h1>
+          <p class="hero-body">Fulstech creates practical apps for writing, visualizing, and organizing work across Jira and Confluence.</p>
+          <div class="hero-actions">
+            <a class="primary-cta" href="#capabilities">Explore what we build</a>
+            <a class="text-cta" href={marketplaceUrl}>View all products <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="capability-system" aria-label="Fulstech product capabilities">
+          <div class="system-lines" aria-hidden="true"></div>
+          <div class="system-center"><img src={asset('brand/fulstech-mark.svg')} width="40" height="48" alt="" /></div>
+          {capabilities.map((item, index) => (
+            <article class={`system-card system-card-${index + 1}`}>
+              <div class="system-card-heading"><h2>{item.label}</h2><span>{item.symbol}</span></div>
+              <p>{item.detail}</p>
+              {index === 0 && <div class="mini-ui mini-editor"><small>H1&nbsp;&nbsp; B&nbsp;&nbsp; ∑</small><i></i><i></i><strong>a² + b² = c²</strong></div>}
+              {index === 1 && <div class="mini-ui mini-flow"><i></i><b>→</b><i class="diamond"></i><b>→</b><i class="accent"></i></div>}
+              {index === 2 && <div class="mini-ui mini-list"><i>✓ <b></b></i><i>✓ <b></b></i><i>□ <b></b></i></div>}
+              {index === 3 && <div class="mini-ui mini-people"><i>A</i><b></b><i>P</i><b></b></div>}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div class="proof-strip" aria-label="Fulstech company highlights">
+        <span><b>{'{ }'}</b> Atlassian Marketplace vendor</span>
+        <span><b>∑</b> Apps for Jira &amp; Confluence</span>
+        <span><b>✓</b> Clear policies</span>
+        <span><b>@</b> Direct support</span>
+      </div>
+
+      <section id="capabilities" class="content-section">
+        <div class="section-heading">
+          <div><p class="eyebrow">WHAT WE HELP TEAMS DO</p><h2>Clarity across content, ideas, and everyday work.</h2></div>
+          <a class="text-cta" href={marketplaceUrl}>Explore all products <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="outcomes-grid">
+          {outcomes.map((item, index) => (
+            <article class="outcome-card">
+              <div class="outcome-title"><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.detail}</p></div></div>
+              {item.kind === 'editor' && <div class="outcome-visual editor-visual"><small>H1&nbsp;&nbsp; H2&nbsp;&nbsp; <b>B</b>&nbsp;&nbsp; ∑</small><h4>Release notes</h4><code>## Summary</code><i></i><i></i><strong>∫ f(x) dx = F(x) + C</strong></div>}
+              {item.kind === 'flow' && <div class="outcome-visual flow-visual"><span>User</span><b>→</b><span class="decision">Check</span><b>→</b><span class="share">Share</span></div>}
+              {item.kind === 'checklist' && <div class="outcome-visual checklist-visual"><span>✓ <b>Define requirements</b></span><span>✓ <b>Review solution</b></span><span class="pending">□ <b>Validate and release</b></span></div>}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="principles" class="principles-section">
+        <div class="principle-lead"><p class="eyebrow">OUR APPROACH</p><h2>Focused by choice.</h2><p>We solve specific problems with care—so every product stays useful, understandable, and dependable.</p><a href="#trust">Why teams can rely on us <span aria-hidden="true">→</span></a></div>
+        <div class="principle-cards">{principles.map((item) => <article><span>{item.number}</span><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
+      </section>
+
+      <section id="trust" class="trust-section">
+        <div class="trust-heading"><p class="eyebrow">CONFIDENCE</p><h2>A dependable company from evaluation to everyday use.</h2></div>
+        <div class="trust-grid">{trust.map((item) => <article><small>{item.eyebrow}</small><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
+        <div class="trust-links"><a href={`${docsUrl}security-policy/`}>Security &amp; privacy →</a><a href={`${docsUrl}service-level-agreement-sla/`}>License &amp; SLA →</a><a href={supportUrl}>Contact Fulstech →</a></div>
+      </section>
+
+      <section class="journey" aria-label="Customer journey">
+        {journey.map(([title, copy], index) => <article><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{copy}</p></div>{index < journey.length - 1 && <b aria-hidden="true">→</b>}</article>)}
+      </section>
+
+      <section class="audience"><p>Built for teams across the Atlassian ecosystem</p><div><span>Product</span><span>Engineering</span><span>Operations</span><span>Knowledge</span><span>Support</span></div></section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand"><a class="brand" href="#top"><img src={asset('brand/fulstech-mark.svg')} width="32" height="36" alt="" /><span>Fulstech</span></a><p>Focused software for teams working across Jira and Confluence.</p></div>
+      <div><h2>Products</h2><a href={marketplaceUrl}>All products</a><a href={marketplaceUrl}>Jira apps</a><a href={marketplaceUrl}>Confluence apps</a></div>
+      <div><h2>Company</h2><a href="#principles">Our approach</a><a href="#trust">Security</a><a href={supportUrl}>Contact</a></div>
+      <div><h2>Resources</h2><a href={docsUrl}>Documentation</a><a href={supportUrl}>Support</a><a href="https://github.com/fulstechlabs">GitHub</a></div>
+      <div><h2>Legal</h2><a href={`${docsUrl}privacy-policy/`}>Privacy</a><a href={`${docsUrl}end-user-license-agreement/`}>License</a><a href={`${docsUrl}service-level-agreement-sla/`}>SLA</a></div>
+      <p class="copyright">© 2026 Fulstech. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
