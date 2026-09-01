@@ -33,12 +33,12 @@ jobs:
       - name: Build static website
         run: npm run build
         env:
-          SITE_URL: https://fulstechlabs.github.io
-          BASE_PATH: /website
+          SITE_URL: https://www.fulstech.com
+          BASE_PATH: /
       - name: Audit built links and assets
         run: npm run audit:build
         env:
-          BASE_PATH: /website
+          BASE_PATH: /
       - name: Configure Pages
         uses: actions/configure-pages@v6
       - name: Upload Pages artifact
@@ -56,4 +56,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-

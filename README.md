@@ -18,7 +18,6 @@ npm run build
 npm run audit:build
 ```
 
-The GitHub Pages workflow initially publishes the project site at
-`https://fulstechlabs.github.io/website/`. Moving to `https://fulstech.com`
-requires a separate reviewed DNS cutover and a workflow base-path update.
-
+The production build targets `https://www.fulstech.com/` with a root base path.
+GitHub Pages custom-domain registration and the reviewed DNS cutover are handled
+separately from the application build.

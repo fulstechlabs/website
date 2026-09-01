@@ -1,7 +1,7 @@
 import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const basePath = (process.env.BASE_PATH || '/website').replace(/\/$/, '');
+const basePath = (process.env.BASE_PATH || '/').replace(/\/$/, '');
 const indexPath = path.resolve('dist/index.html');
 const html = await readFile(indexPath, 'utf8');
 
@@ -27,4 +27,3 @@ if (!html.includes(`${basePath}/brand/fulstech-mark.svg`)) {
 }
 
 console.log('Built website content, links, and assets are valid.');
-
